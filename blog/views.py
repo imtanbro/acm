@@ -9,22 +9,32 @@ from django.views.generic import (
     DeleteView
 )
 from django import forms
-from .models import Post
+from .models import Post , Updates ,upcomingEvents , pastEvents
 
 
 def home(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/home.html', context)
+    # context = {
+    #     'posts': Post.objects.all(),
+    #     'updates':Updates.objects.all()
+    #
+    # }
+    return render(request, 'blog/blog-home.html', context)
 
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/home.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'blog/blog-home.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'posts'
+
     ordering = ['-date_posted']
     paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super(PostListView, self).get_context_data(**kwargs)
+        context.update({
+            'updates':Updates.objects.all()
+        })
+        return context
 
 
 class UserPostListView(ListView):
@@ -42,12 +52,6 @@ class PostDetailView(DetailView):
     model = Post
 
 
-STATES = (
-    ('', 'Choose...'),
-    ('MG', 'Minas Gerais'),
-    ('SP', 'Sao Paulo'),
-    ('RJ', 'Rio de Janeiro')
-)
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
@@ -92,4 +96,13 @@ def about(request):
 
 
 def home1(request):
-    return render(request, 'blog/home1.html', {'title': 'Home'})
+    return render(request, 'blog/index.html', {'title': 'Home'})
+
+def vision(request):
+    return render(request,"blog/Vision.html",{'title':"Vision"})
+
+def events(request):
+    upevents = upcomingEvents.objects.all()
+    pastevents = pastEvents.objects.all()
+
+    return render(request,"blog/events.html",{'title':"Events","upevents":upevents,"pastevents":pastevents})

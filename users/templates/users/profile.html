@@ -1,35 +1,98 @@
-{% extends "blog/base.html" %}
+{% extends "blog/base1.html" %}
 {% load crispy_forms_tags %}
 {% load socialaccount %}
 {% block content %}
-    <div class="content-section">
-      <div class="media">
-          {% if user.socialaccount_set.all.0.get_avatar_url %}
-           <img class="rounded-circle account-img" src="{{  user.socialaccount_set.all.0.get_avatar_url }}">
+<div class="mprofile-card container-fluid">
+     <div class="mprofile-grid row ">
+         <div class="mprofile-pic col-md col-lg-6 col-sm-12">
+             {% if user.socialaccount_set.all.0.get_avatar_url %}
+<!--             <img src="https://picsum.photos/id/237/300/300" alt="error" class="mphoto">-->
+             <img class="mphoto" src="{{  user.socialaccount_set.all.0.get_avatar_url }}">
 
-        {% else %}
-           <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        {% endif %}
+            {% else %}
+               <img class="mphoto" src="{{ user.profile.image.url }}">
+            {% endif %}
+         </div>
+         <div class="mprofile-main col-md col-lg-6 col-sm-12">
+           <div class="mprofile-info">
+               <div class="font-weight-bold musername">
+            {{ user.username }}
+     </div>
+     <div class="font-weight-light memail">
+            {{ user.email }}
+     </div>
+     <div class="font-weight-normal mfullname">
+            {{ user.first_name }} {{ user.last_name }}
+     </div></div>
+         </div>
+     </div>
+
+ </div>
+<!--<div class="container" >-->
+<!--    <div class="content-section">-->
+<!--      <div class="media">-->
+<!--          {% if user.socialaccount_set.all.0.get_avatar_url %}-->
+<!--           <img class="rounded-circle account-img" src="{{  user.socialaccount_set.all.0.get_avatar_url }}">-->
+
+<!--            {% else %}-->
+<!--               <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">-->
+<!--            {% endif %}-->
 
 
-        <div class="media-body">
-          <h2 class="account-heading">{{ user.username }}</h2>
-          <p class="text-secondary">{{ user.email }}</p>
-           <h5 class="text-primary">{{ user.first_name }} {{ user.last_name }}</h5>
+<!--        <div class="media-body">-->
+<!--          <h2 class="account-heading">{{ user.username }}</h2>-->
+<!--          <p class="text-secondary">{{ user.email }}</p>-->
+<!--           <h5 class="text-primary">{{ user.first_name }} {{ user.last_name }}</h5>-->
 
-        </div>
-      </div>
-      <form method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
-          <fieldset class="form-group">
-              <legend class="border-bottom mb-4">Profile Info</legend>
-              {{ u_form|crispy }}
-              {{ p_form|crispy }}
-          </fieldset>
-          <div class="form-group">
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <form method="POST" enctype="multipart/form-data">-->
+<!--          {% csrf_token %}-->
+<!--          <fieldset class="form-group">-->
+<!--              <legend class="border-bottom mb-4">Profile Info</legend>-->
+<!--              {{ u_form|crispy }}-->
+<!--              {{ p_form|crispy }}-->
+<!--          </fieldset>-->
+<!--          <div class="form-group">-->
+<!--              <button class="btn btn-outline-info" type="submit">Update</button>-->
+<!--          </div>-->
+<!--      </form>-->
+<!--        <a class="btn btn-outline-danger" href="{% url 'account_reset_password' %}">Password Reset</a>-->
+<!--    </div>-->
+<!--    </div>-->
+
+<div class="container">
+     <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <legend class="border-bottom mb-4">Profile Info</legend>
+              <div class="form-row">
+                <div class="col">
+                    {{ u_form.username|as_crispy_field }}
+
+                </div>
+                <div class="col">
+                    {{ u_form.email|as_crispy_field }}
+
+                </div>
+
+
+              </div>
+         {% if user.socialaccount_set.all.0.get_avatar_url %}
+            <div></div>
+         {% else %}
+            <div class="">
+
+                {{ p_form|crispy }}
+            </div>
+            <div class="form-group">
               <button class="btn btn-outline-info" type="submit">Update</button>
-          </div>
-      </form>
-        <a class="btn btn-outline-danger" href="{% url 'account_reset_password' %}">Password Reset</a>
-    </div>
+            </div>
+         {% endif %}
+
+        </form>
+    <a class="btn btn-outline-danger" href="{% url 'account_reset_password' %}">Password Reset</a>
+</div>
+<br>
+<br>
 {% endblock content %}
