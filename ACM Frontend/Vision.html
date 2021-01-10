@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Bootstrap Theme</title>
+</head>
+
+
+<style>
+    .test{
+    margin: 0;
+    display: flex;
+    justify-content:center;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  .box{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 15px;
+    margin: 0 auto;
+  }
+  .card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+  }
+  .card:before,
+  .card:after
+  {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: #fff;
+    transition: 0.5s;
+    z-index:-1;
+  }
+  .card:hover:before{
+  transform: rotate(20deg);
+  box-shadow: 0 2px 20px rgba(0,0,0,.2);
+  }
+  .card:hover:after{
+  transform: rotate(10deg);
+  box-shadow: 0 2px 20px rgba(0,0,0,.2);
+  }
+  .card .imgBx{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  background: #222;
+  transition: 0.5s;
+  z-index: 1;
+  }
+  
+  .card:hover .imgBx
+  {
+    bottom: 80px;
+  }
+
+  .card .imgBx img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .card .details{
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      height: 60px;
+      text-align: center;
+  }
+
+  .card .details h2{
+   margin: 0;
+   padding: 0;
+   font-weight: 600;
+   font-size: 20px;
+   color: #777;
+   text-transform: uppercase;
+  } 
+
+  .card .details h2 span{
+  font-weight: 500;
+  font-size: 16px;
+  color: #f38695;
+  display: block;
+  margin-top: 5px;
+   } 
+   .vision{
+       text-align: center;
+       padding: 20px;
+   }
+
+
+   @media screen and (max-width: 600px) {
+  .box {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    padding-bottom: 50px;
+  }
+  .card{
+    padding: 10px;
+  }
+}
+
+   
+</style>
+<body>
+    <!-- START HERE -->
+
+
+
+
+
+    <!--Navbar-->
+
+    <div class="abovebar text-right  ">
+
+        <a class="btn btn-sm " href="/login.html" type="submit">Login</a>
+        <a class="btn btn-sm " href="/registration.html" type="submit">Register</a>
+
+
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light shadow " style="background-color: #ffff;">
+        <div class="container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg" width="60" height="60" alt="">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/events.html">Events</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="lined">
+
+    </div>
+
+    <!--Navbar End-->
+
+    <!-- content start -->
+    <div class="container">
+    <div class="vision col-md-12 col-md-12 col-sm-12 ">
+        <h1>Vision</h1>
+        <br>
+        <p>ACM-DYPIEMR Student Chapter will incubate potential and talent, supporting the personalized development needs of our students to facilitate a structured path from education to employment. We provide a supportive environment for our students to learn and flourish their skills. We also inculcate leadership qualities, industry connectivity, market understanding, personal growth to our students through this platform. Therefore, our vision is the complete development of our students and help them drive their standards higher!</p>
+        <br><br><br>
+        <h1>Our Team</h1>
+
+    </div>
+  <div class="test"> 
+  <div class="box">
+      <div class="card">
+        <div class="imgBx">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="images">
+        </div>
+        <div class="details">
+            <h2>Tanmay<br><span>Webmaster</span></h2>
+        </div>
+      </div>
+    
+       <div class="card">
+         <div class="imgBx">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="images">
+         </div>
+         <div class="details">
+            <h2>Nikhil<br><span>President</span></h2>
+          </div>
+       </div>
+
+       <div class="card">
+         <div class="imgBx">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="images">
+         </div>
+         <div class="details">
+            <h2>Neha<br><span>VP</span></h2>
+          </div>
+       </div>
+
+       <div class="card">
+        <div class="imgBx">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="images">
+        </div>
+        <div class="details">
+            <h2>Tanmay<br><span>Webmaster</span></h2>
+        </div>
+      </div>
+    
+       <div class="card">
+         <div class="imgBx">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="images">
+         </div>
+         <div class="details">
+            <h2>Nikhil<br><span>President</span></h2>
+          </div>
+       </div>
+
+       <div class="card">
+         <div class="imgBx">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="images">
+         </div>
+         <div class="details">
+            <h2>Neha<br><span>VP</span></h2>
+          </div>
+       </div>
+       <div class="card">
+        <div class="imgBx">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="images">
+        </div>
+        <div class="details">
+            <h2>Tanmay<br><span>Webmaster</span></h2>
+        </div>
+      </div>
+    
+       <div class="card">
+         <div class="imgBx">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="images">
+         </div>
+         <div class="details">
+            <h2>Nikhil<br><span>President</span></h2>
+          </div>
+       </div>
+
+       <div class="card">
+         <div class="imgBx">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="images">
+         </div>
+         <div class="details">
+            <h2>Neha<br><span>VP</span></h2>
+          </div>
+       </div>
+ 
+  </div>
+</div>
+</div>
+
+
+    <!-- Content End -->
+
+    <div id="footer">
+        <div class="jumbotron text-center" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-lg-4 col-md-12   ">
+                        <a class="navbar-brand" href="#">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg" width="150" height="150" alt="">
+                        </a>
+                    </div>
+
+                    <br>
+                    <div class="col-md col-lg-4 col-md-12 ml-2-sm">
+                        <h4>Contact Us</h4>
+
+                        <div class="footer-social-icons p-0">
+
+                            <ul class="social-icons p-0">
+                                <li>
+                                    <a href="" class="social-icon"> <i class="fab fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="" class="social-icon"> <i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="" class="social-icon" style="color: white;"> <i class="fa fa-rss"></i></a>
+                                </li>
+                                <li>
+                                    <a href="" class="social-icon"> <i class="fab fa-youtube"></i></a>
+                                </li>
+                                <li>
+                                    <a href="" class="social-icon"> <i class="fab fa-linkedin"></i></a>
+                                </li>
+                                <li>
+                                    <a href="" class="social-icon"> <i class="fab fa-github"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p><i class="fa fa-envelope" aria-hidden="true"></i></p>
+                        <p>dypiemr.acm@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i><br>
+                            <p>Dr.D.Y.Patil Institute of Engineering Management & Research,Dr. D. Y. Patil Educational Complex,Akurdi,Pune</p>
+
+                        </p>
+                    </div>
+
+                    <br>
+                    <div class="col-md col-lg-4 col-md-12 ml-2-sm">
+                        <h4>Important Links</h4>
+                        <br>
+                        <ol style="list-style: none;">
+                            <p><i class="fab fa-blogger"></i> Blog</p>
+                            <p><i class="fas fa-calendar-alt"></i> Events</p>
+                            <p><i class="fas fa-sign-in-alt"></i> Login</p>
+                            <p><i class="fas fa-sign-in-alt"></i> Register</p>
+
+
+
+
+
+
+                        </ol>
+
+                    </div>
+
+
+
+
+
+                </div>
+                <div style="width:100%;
+                height:40px;
+                border-bottom: 1px solid rgba(255,255,255,.25);">
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md col-lg-6 col-md-12"> © ACM DYPIEMR 2020, All rights reserved</div>
+                    <div class="col-md col-lg-6 col-md-12">Made with &#10084;&#65039; by Webmaster Team ACM DYPIEMR</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <nav class="social">
+        <ul>
+            <li><a href="https://twitter.com/gian_michelle">Twitter <i class="fab fa-twitter fa-3x"></i></a></li>
+            <li><a href="https://facebook.com/">Facebook <i class="fab fa-facebook"></i></a></li>
+            <li><a href="http://dribbble.com/gian_michelle">Dribbble <i class="fab fa-dribbble"></i></a></li>
+            <li><a href="http://behance.net/gianm">Behance <i class="fab fa-behance"></i></a></li>
+        </ul>
+    </nav>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+    <script>
+        // Get the current year for the copyright
+        $('#year').text(new Date().getFullYear());
+    </script>
+    <script src="js/javascript.js"></script>
+</body>
+
+</html>

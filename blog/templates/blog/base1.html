@@ -21,11 +21,13 @@
 </head>
 
 <body>
-    <div class="loader_bg">
-        <div class="loader">
+<!--    {% if title == Home %}-->
+<!--    <div class="loader_bg">-->
+<!--        <div class="loader">-->
 
-        </div>
-    </div>
+<!--        </div>-->
+<!--    </div>-->
+<!--    {% endif %}-->
     <!-- START HERE -->
 
 
@@ -34,7 +36,7 @@
     <!--Navbar-->
     <div class="abovebar text-right  ">
         {% if user.is_authenticated %}
-                <a class="btn btn-sm" href="{% url 'post-create' %}">New Post</a>
+
                 <a class="btn btn-sm" href="{% url 'profile' %}">Profile</a>
                 <a class="btn btn-sm" href="{% url 'account_logout' %}">Logout</a>
               {% else %}
@@ -62,8 +64,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'blog-home' %}">Blog</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog-about' %}">Events</a>
+                        <a class="nav-link" href="{% url 'vision' %}">Vision</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'events' %}">Events</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

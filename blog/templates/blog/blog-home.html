@@ -1,0 +1,146 @@
+{% extends "blog/base1.html" %}
+
+{% block content %}
+<br>
+<br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-5 pd-1 mb-2 ">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h6>Notifications</h6>
+
+                        {% for updat in updates %}
+                        <p class="card-text">{{ updat.title }}</p>
+                        <h6 class="text-muted" style="font-size: 12px;">{{ updat.date|date:"F d, Y" }}</h6>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-lg-7 col-md-7 col-sm-12 pl-0 m-0">
+                <div class="container">
+
+                    <!-- Blog Posts-->
+
+
+
+
+                    {% for post in posts %}
+                    <div class="card mb-1">
+                        <div class="row m-1">
+                            <div class="col-1 mr-0 mt-3">
+                                <img src="{{ post.author.profile.image.url }}" style="width: 40px; height: 40px; border-radius: 50%;" class="img-circle" />
+
+                            </div>
+                            <div class="col-10 m-1">
+                                <div class="card-block ml-0 pl-0">
+
+
+                                    <div class="ml-2">
+                                        <span class="">{{ post.author }}</span>
+                                        <br>
+                                        <h6 class="text-muted" style="font-size: 12px;">{{ post.date_posted|date:"F d, Y" }}</h6>
+                                    </div>
+                                    <h4><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h4>
+                                    <div >
+                                        <img class="card-img-top"  src="{{ post.cover.url}}" alt="Card image cap">
+                                     </div>
+                                    <div class="">
+
+                                        <span class="text-muted">#python</span>
+                                        <span class="text-muted">#javascript</span>
+                                        <span class="text-muted">#machinelearnning</span>
+                                        <span class="text-muted">#datascience</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+
+
+
+
+                    <!-- Blog Posts-->
+
+
+
+                    {% if is_paginated %}
+
+                    <nav aria-label="Page navigation text-center mx-auto">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                             {% endif %}
+
+                             {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                     <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+
+                                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+
+                               <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+
+                                {% endif %}
+                             {% endfor %}
+                            {% if page_obj.has_next %}
+                             <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+
+
+
+                          {% endif %}
+
+<!--                            <li class="page-item"></a><a class="page-link" href="#">Previous</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+
+                        </ul>
+                    </nav>
+                    {% endif %}
+                </div>
+            </div>
+
+
+
+
+            <div class="col-lg-2 ml-0 pl-0  d-none d-lg-block">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
