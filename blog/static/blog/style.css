@@ -321,20 +321,7 @@ body {
     transform: rotate(0deg);
 }
 
-.cuber {
-    padding-top: 8%;
-    background: url("img/white-back.png");
-    /* opacity: 0.4; */
-    /* The image used */
-    /* Used if the image is unavailable */
-    height: 500px;
-    /* You must set a specified height */
-    background-position: center;
-    /* Center the image */
-    background-repeat: no-repeat;
-    /* Do not repeat the image */
-    background-size: cover;
-}
+
 
 .cuber .banner h2 {
     color: #003A78;
