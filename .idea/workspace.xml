@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63931b61-e15b-4576-9dfc-e351131a60e2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_project/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../blog/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../blog/admin.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../blog/apps.py" beforeDir="false" />
